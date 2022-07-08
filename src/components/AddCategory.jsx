@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export const AddCategory = ({setCategories}) => {
+export const AddCategory = ({onNewCategory}) => {
 const [inputValue, setInputValue] = useState('Dragon Ball GT');
     const onInputChage = (event) => {
         //console.log(event.target.value)
@@ -11,7 +11,8 @@ const [inputValue, setInputValue] = useState('Dragon Ball GT');
         event.preventDefault();
         if(inputValue.trim().length <=1 ) return; //valida si tenemos mas de un caracter en el imput
 
-        setCategories( categories => [inputValue, ...categories]);
+        /* setCategories( categories => [inputValue, ...categories]); */
+        onNewCategory(inputValue.trim());
         setInputValue("")
     }
 
