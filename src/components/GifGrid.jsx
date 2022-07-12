@@ -10,8 +10,11 @@ export const GifGrid = ({category}) => {
     
   return (
     <>
-        <h4>{category}</h4>  
-       <div className="card-grid">
+      {
+        isLoading && (<h2>Cargando...</h2>)
+      }
+      <h4>{category}</h4>  
+      <div className="card-grid">
        {images.map((image)=>(
          <GifItem key={image.id}
          {...image}   // esparce todas las propiedades del image
